@@ -27,62 +27,64 @@ export default function Navbar({
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#0B0B13]/95 backdrop-blur-md border-b border-white/10">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
-        <Link href="/" className="text-lg font-bold uppercase tracking-widest text-white">
-          {logoText}
-        </Link>
+    <header className="sticky top-0 z-50 w-full">
+      <div className="mx-auto max-w-6xl px-4 py-3">
+        <div className="flex h-16 items-center justify-between rounded-full border border-border bg-background/80 px-4 backdrop-blur">
+          <Link href="/" className="text-lg font-bold uppercase tracking-widest text-white">
+            {logoText}
+          </Link>
 
-        <nav className="hidden items-center gap-6 md:flex">
-          {links.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="text-sm font-semibold text-white/80 transition-colors hover:text-[#E63946]"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+          <nav className="hidden items-center gap-6 md:flex">
+            {links.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-sm font-semibold text-white/80 transition-colors hover:text-[#E63946]"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
 
-        <div className="flex items-center gap-2">
-          <div className={cn('relative hidden md:block', searchOpen ? 'w-56' : 'w-9')}>
-            {searchOpen && (
-              <Input
-                placeholder="Search drops"
-                className="h-9 bg-white/5 text-white placeholder:text-white/50"
-              />
-            )}
+          <div className="flex items-center gap-2">
+            <div className={cn('relative hidden md:block', searchOpen ? 'w-56' : 'w-9')}>
+              {searchOpen && (
+                <Input
+                  placeholder="Search drops"
+                  className="h-9 bg-white/5 text-white placeholder:text-white/50"
+                />
+              )}
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setSearchOpen((v) => !v)}
+                className={cn(
+                  'absolute right-0 top-0 h-9 w-9 text-white',
+                  searchOpen ? 'bg-[#E63946]/20' : 'hover:text-[#E63946]'
+                )}
+              >
+                <Search className="h-4 w-4" />
+              </Button>
+            </div>
+
+            <Button variant="ghost" size="icon" className="relative text-white hover:text-[#E63946]">
+              <ShoppingCart className="h-5 w-5" />
+              {cartCount > 0 && (
+                <Badge className="absolute -right-2 -top-2 h-5 w-5 rounded-full bg-[#E63946] p-0 text-xs">
+                  {cartCount}
+                </Badge>
+              )}
+            </Button>
+
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => setSearchOpen((v) => !v)}
-              className={cn(
-                'absolute right-0 top-0 h-9 w-9 text-white',
-                searchOpen ? 'bg-[#E63946]/20' : 'hover:text-[#E63946]'
-              )}
+              onClick={() => setMobileOpen(true)}
+              className="text-white hover:text-[#E63946] md:hidden"
             >
-              <Search className="h-4 w-4" />
+              <Menu className="h-5 w-5" />
             </Button>
           </div>
-
-          <Button variant="ghost" size="icon" className="relative text-white hover:text-[#E63946]">
-            <ShoppingCart className="h-5 w-5" />
-            {cartCount > 0 && (
-              <Badge className="absolute -right-2 -top-2 h-5 w-5 rounded-full bg-[#E63946] p-0 text-xs">
-                {cartCount}
-              </Badge>
-            )}
-          </Button>
-
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setMobileOpen(true)}
-            className="text-white hover:text-[#E63946] md:hidden"
-          >
-            <Menu className="h-5 w-5" />
-          </Button>
         </div>
       </div>
 
