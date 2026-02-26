@@ -49,8 +49,8 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)"
       },
       fontFamily: {
-        heading: ["var(--font-heading)", "system-ui", "sans-serif"],
-        body: ["var(--font-body)", "system-ui", "sans-serif"]
+        heading: ["Inter", "system-ui", "sans-serif"],
+        body: ["Inter", "system-ui", "sans-serif"]
       },
       animation: {
         aurora: "aurora 60s linear infinite",

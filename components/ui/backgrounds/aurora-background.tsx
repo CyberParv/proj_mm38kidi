@@ -16,11 +16,11 @@ export function AuroraBackground({
   ...props
 }: AuroraBackgroundProps) {
   var colorVars = {
-    '--aurora-1': auroraColors && auroraColors[0] ? auroraColors[0] : '#3b82f6',
-    '--aurora-2': auroraColors && auroraColors[1] ? auroraColors[1] : '#6366f1',
-    '--aurora-3': auroraColors && auroraColors[2] ? auroraColors[2] : '#93c5fd',
-    '--aurora-4': auroraColors && auroraColors[3] ? auroraColors[3] : '#ddd6fe',
-    '--aurora-5': auroraColors && auroraColors[4] ? auroraColors[4] : '#60a5fa',
+    '--aurora-1': auroraColors && auroraColors[0] ? auroraColors[0] : '#2563eb',
+    '--aurora-2': auroraColors && auroraColors[1] ? auroraColors[1] : '#0ea5e9',
+    '--aurora-3': auroraColors && auroraColors[2] ? auroraColors[2] : '#38bdf8',
+    '--aurora-4': auroraColors && auroraColors[3] ? auroraColors[3] : '#60a5fa',
+    '--aurora-5': auroraColors && auroraColors[4] ? auroraColors[4] : '#1e40af',
   } as React.CSSProperties;
 
   return (
